@@ -19,11 +19,15 @@
     color: #C19A6B;
 }
 
+.text-dark-brown {
+    color: #906a3c;
+}
+
 .btn-brown {
     background-color: #C19A6B;
     color: white;
 }
-.btn-brown:visited, .btn-brown:hover {
+.btn-brown:hover {
     border-color: #C19A6B;
     background-color: white;
     color: #C19A6B;
@@ -35,7 +39,7 @@
     color: #C19A6B;
 }
 
-.btn-outline-brown:visited, .btn-outline-brown:hover {
+.btn-outline-brown:hover {
     background-color: #C19A6B;
     color: white;
 }

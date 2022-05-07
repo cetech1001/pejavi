@@ -7,3 +7,34 @@
     width: 40rem;
     margin: 0 auto;
 }
+
+/*Categories*/
+.view-more-latest {
+    border: 1px solid #C19A6B;
+    border-radius: 50px;
+}
+
+.view-more-latest:hover {
+    color: #906a3c;
+    border: 1px solid #906a3c;
+}
+
+.view-more-cheapest {
+    border: 1px solid white;
+    color: white;
+    border-radius: 50px;
+}
+
+.view-more-cheapest:hover {
+    border: 1px solid #906a3c;
+    color: #906a3c;
+}
+
+/*Product*/
+.product {
+    cursor: pointer;
+}
+
+.product:hover {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .250) !important;
+}

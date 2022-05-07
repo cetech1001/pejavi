@@ -1,0 +1,9 @@
+/*Carousel styles*/
+.img-slide {
+    max-height: 530px;
+}
+
+.carousel-item .caption {
+    width: 40rem;
+    margin: 0 auto;
+}

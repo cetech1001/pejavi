@@ -1,3 +1,95 @@
+/*General styles*/
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    outline: none !important;
+    box-shadow: none;
+    border-color: #C19A6B;
+}
+
+/*Theme styles*/
+.bg-brown {
+    background-color: #C19A6B;
+}
+
+.text-brown {
+    color: #C19A6B;
+}
+
+.btn-brown {
+    background-color: #C19A6B;
+    color: white;
+}
+.btn-brown:visited, .btn-brown:hover {
+    border-color: #C19A6B;
+    background-color: white;
+    color: #C19A6B;
+}
+
+.btn-outline-brown {
+    border-color: #C19A6B;
+    background-color: white;
+    color: #C19A6B;
+}
+
+.btn-outline-brown:visited, .btn-outline-brown:hover {
+    background-color: #C19A6B;
+    color: white;
+}
+
+.border-brown {
+    border-color: #C19A6B;
+}
+
+/*Header styles*/
 .logo {
-    height: 150px;
+    height: 100px;
+}
+
+.categories-list {
+    min-width: 40%;
+}
+
+.categories-list > .input-group > ul {
+    border: 0;
+    padding: 0;
+}
+
+.categories-list > .input-group > ul > .category {
+    margin: 5px 0;
+    background-color: #C19A6B;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.categories-list > .input-group > ul > .category > a {
+    color: white;
+}
+
+.categories-list > .input-group > ul > .category > a:hover {
+    background-color: white;
+    color: #C19A6B;
+    border-radius: 10px;
+    border: 1px solid #C19A6B;
+}
+
+.categories-list > .input-group > ul > .sub-category {
+    margin: 5px 0 5px 20px;
+    background-color: #C19A6B;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.categories-list > .input-group > ul > .sub-category > a {
+    color: white;
+}
+
+.categories-list > .input-group > ul > .sub-category > a:hover {
+    background-color: white;
+    color: #C19A6B;
+    border-radius: 10px;
+    border: 1px solid #C19A6B;
 }

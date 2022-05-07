@@ -96,22 +96,20 @@
 }
 
 /*Nav styles*/
+nav {
+    background-color: #906a3c;
+}
+
 .nav-item {
+    text-align: center;
     background-color: white;
     margin: 5px;
-    border-radius: 10px;
+    min-width: 110px;
 }
 
-.nav-link {
-    color: #C19A6B;
-}
-
-.nav-link:hover {
-    color: black;
-}
-
-.nav-link:visited {
-    color: #C19A6B;
+.navbar-toggler:focus, .navbar-toggler:active {
+    outline: none !important;
+    box-shadow: none;
 }
 
 nav .sub-category {

@@ -142,3 +142,7 @@ nav .navbar-toggler:focus, .navbar-toggler:active {
 .product:hover {
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .250) !important;
 }
+
+.product img {
+    opacity: 0.5;
+}

@@ -106,10 +106,24 @@
                         <td>johndoe@mail.com</td>
                         <td><span class="badge badge-pill bg-success">Active</span></td>
                         <td class="d-flex flex-row gap-3">
-                            <a href="#" class="text-dark"><span data-feather="edit"></span></a>
-                            <a href="#" class="text-dark"><span data-feather="x-circle"></span></a>
-                            <a href="#" class="text-dark"><span data-feather="check-circle"></span></a>
-                            <a href="#" class="text-dark"><span data-feather="delete"></span></a>
+                            <a href="#" class="text-dark" title="Edit customer"
+                               data-bs-toggle="modal" data-bs-target="#edit-customer-modal">
+                                <span data-feather="edit"></span>
+                            </a>
+                            <a href="#" class="text-dark" title="Change customer's password"
+                               data-bs-toggle="modal" data-bs-target="#change-customer-password-modal">
+                                <span data-feather="lock"></span>
+                            </a>
+                            <a href="#" class="text-dark" title="Suspend customer's account">
+                                <span data-feather="x-circle"></span>
+                            </a>
+                            <a href="#" class="text-dark" title="Activate customer's account">
+                                <span data-feather="check-circle"></span>
+                            </a>
+                            <a href="#" class="text-dark" title="Delete customer's account"
+                               data-bs-toggle="modal" data-bs-target="#delete-customer-modal">
+                                <span data-feather="delete"></span>
+                            </a>
                         </td>
                     </tr>
                     </tbody>
@@ -121,7 +135,8 @@
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
 <script src="../../assets/js/dashboard.js"></script>
 
-<div class="modal fade" id="new-customer-modal" tabindex="-1" aria-labelledby="new-customer-modal-label" aria-hidden="true">
+<div class="modal fade" id="new-customer-modal" tabindex="-1"
+     aria-labelledby="new-customer-modal-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
@@ -164,5 +179,99 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="edit-customer-modal" tabindex="-1"
+     aria-labelledby="edit-customer-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex flex-row justify-content-between align-items-center mb-3">
+                    <h4>Edit Customer</h4>
+                    <span style="cursor: pointer" data-bs-dismiss="modal" aria-label="Close">
+                        <span data-feather="x-circle" class="align-text-bottom"></span>
+                    </span>
+                </div>
+                <form class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="edit-name" class="form-label">
+                            Name <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="edit-name" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="edit-email" class="form-label">
+                            Email address <span class="text-danger">*</span>
+                        </label>
+                        <input type="email" class="form-control" id="edit-email" required>
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn btn-secondary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="change-customer-password-modal" tabindex="-1"
+     aria-labelledby="change-customer-password-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex flex-row justify-content-between align-items-center mb-3">
+                    <h4>Change Password</h4>
+                    <span style="cursor: pointer" data-bs-dismiss="modal" aria-label="Close">
+                        <span data-feather="x-circle" class="align-text-bottom"></span>
+                    </span>
+                </div>
+                <form class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="edit-password" class="form-label">
+                            Password <span class="text-danger">*</span>
+                        </label>
+                        <input type="password" class="form-control" id="edit-password" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="edit-re-password" class="form-label">
+                            Re-type Password <span class="text-danger">*</span>
+                        </label>
+                        <input type="password" class="form-control" id="edit-re-password" required>
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn btn-secondary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="delete-customer-modal" tabindex="-1"
+     aria-labelledby="delete-customer-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex flex-row justify-content-between align-items-center mb-3">
+                    <h4>Delete Customer</h4>
+                    <span style="cursor: pointer" data-bs-dismiss="modal" aria-label="Close">
+                        <span data-feather="x-circle" class="align-text-bottom"></span>
+                    </span>
+                </div>
+                <form class="row">
+                    <div class="col-md-12 mb-3">
+                        Are you sure you want to delete John Doe's account?
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal" aria-label="Close">
+                            No, Cancel
+                        </button>
+                        <button class="btn btn-danger" type="submit">Yes, Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

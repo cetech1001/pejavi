@@ -3,5 +3,5 @@
 $(() => {
   'use strict'
   feather.replace({ 'aria-hidden': 'true' });
-  $("#latest-orders").DataTable();
+  $("#data-table").DataTable();
 });

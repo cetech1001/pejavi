@@ -1,90 +1,7 @@
 <?php
-    include 'auth/connect.php';
-
-    $name = $email = $password = $conPassword = "";
-    $nameErr = $emailErr = $passwordErr = $conPasswordErr = "";
-    $loginEmail = $loginPassword = "";
-    $errors = 0;
-
-    if($_SERVER["REQUEST_METHOD"] == "POST" &&  isset($_POST["signup"])){
-        $name = test_input($_POST['name']);
-        $email = test_input($_POST['email']);
-        $password = test_input($_POST['password']);
-        $conPassword = test_input($_POST['re-password']);
-
-        if(empty($name)){
-            echo $nameErr = "Field cannot be empty!";
-            $errors++;
-        }
-
-        if(empty($email)){
-            echo $emailErr = "Field cannot be empty!";
-            $errors++;
-        }else{
-            $check = "SELECT * FROM users WHERE email='$email'";
-            $outcome = mysqli_query($con, $check);
-            if(mysqli_num_rows($outcome) > 0){
-                echo "\n" . "Mail already Exist!";
-                $errors++;
-            }
-        }
-
-        if(empty($password)){
-            echo $passwordErr = "Field cannot be empty!";
-            $errors++;
-        }
-
-        if(empty($conPassword)){
-            echo $conPasswordErr = "Field cannot be empty!";
-            $errors++;
-        }
-
-        if($password !== $conPassword){
-            echo $conPasswordErr = "Passwords do not match!!";
-            $errors++;
-        }else{
-            $newPassword = $conPassword;
-        }
-
-        if(empty($errors)){
-            $insert = "INSERT INTO users (`name`, `password`, email) VALUES ('$name', '$newPassword', '$email')";
-            mysqli_query($con, $insert);
-
-            echo "Successful Creating Account";
-        }
-        else{
-            echo "<br>Something went wrong!";
-        }
-
-    }
-
-    if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login'])){
-        $loginEmail = mysqli_real_escape_string($con, $_POST['email-login']);
-        $loginPassword = mysqli_real_escape_string($con, $_POST['login-password']);
-
-        $query = "SELECT * FROM users WHERE email='$loginEmail' AND password='$loginPassword'";
-        $result = $con->query($query);
-
-        if ($result->num_rows > 0){
-            while($row = $result->fetch_assoc()){
-                $_SESSION["userid"] = $row['id'];
-            }
-            echo "Successful Login!";
-        }else{
-            echo "Something went wrong! Incorrect Password";
-        }
-
-    }
-
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
+  require_once "../config/index.php";
+  req("pages/layout/header");
 ?>
-<?php include 'layouts/header.php'; ?>
 
 <div id="home-carousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -336,4 +253,4 @@
   </div>
 </div>
 
-<?php include 'layouts/footer.php'; ?>
+<?php req("pages/layout/footer"); ?>

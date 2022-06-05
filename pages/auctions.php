@@ -1,180 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auctions | Livestock Auction Platform</title>
-    <link rel="icon" href="../assets/img/favicon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="../assets/css/shop.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-<header class="d-flex justify-content-between p-3 align-items-center">
-    <img src="../assets/img/logo.png" alt="Logo" class="logo">
-    <div class="categories-list d-none d-md-block">
-        <div class="input-group">
-            <button class="btn btn-outline-brown dropdown-toggle" type="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">Categories</button>
-            <ul class="dropdown-menu">
-                <li class="category"><a class="dropdown-item" href="./shop.html">Cattle (13)</a></li>
-                <li class="sub-category"><a class="dropdown-item" href="./shop.html">Bulls (1)</a></li>
-                <li class="sub-category"><a class="dropdown-item" href="./shop.html">Cows (1)</a></li>
-                <li class="sub-category"><a class="dropdown-item" href="./shop.html">Heifers (11)</a></li>
-                <li class="category"><a class="dropdown-item" href="./shop.html">Goats (6)</a></li>
-                <li class="sub-category"><a class="dropdown-item" href="./shop.html">Rams (1)</a></li>
-                <li class="category"><a class="dropdown-item" href="./shop.html">Sheep (7)</a></li>
-                <li class="sub-category"><a class="dropdown-item" href="./shop.html">Ewes (5)</a></li>
-                <li class="sub-category"><a class="dropdown-item" href="./shop.html">Lambs (2)</a></li>
-            </ul>
-            <input type="text" class="form-control border-brown" placeholder="Search livestock products...">
-            <button class="btn btn-outline-brown">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </div>
-    </div>
-    <button class="btn btn-outline-brown p-sm-2 p-md-3" data-bs-toggle="modal" data-bs-target="#auth-modal">
-        <i class="fa-solid fa-user"></i> Login / Sign Up
-    </button>
-</header>
-<div class="categories-list d-sm-none p-3">
-    <div class="input-group">
-        <button class="btn btn-outline-brown dropdown-toggle" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false">Categories</button>
-        <ul class="dropdown-menu">
-            <li class="category"><a class="dropdown-item" href="./shop.html">Cattle (13)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="./shop.html">Bulls (1)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="./shop.html">Cows (1)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="./shop.html">Heifers (11)</a></li>
-            <li class="category"><a class="dropdown-item" href="./shop.html">Goats (6)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="./shop.html">Rams (1)</a></li>
-            <li class="category"><a class="dropdown-item" href="./shop.html">Sheep (7)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="./shop.html">Ewes (5)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="./shop.html">Lambs (2)</a></li>
-        </ul>
-        <input type="text" class="form-control border-brown" placeholder="Search livestock products...">
-        <button class="btn btn-outline-brown">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-    </div>
-</div>
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-        <a class="navbar-brand d-sm-none text-white" href="#">MENU</a>
-        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
-                aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon text-white"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="menu">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.php">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="categories" data-bs-toggle="dropdown" href="#" role="button"
-                       aria-expanded="false">Categories</a>
-                    <ul class="dropdown-menu" aria-labelledby="categories">
-                        <li class="category"><a class="dropdown-item" href="./shop.html">Cattle (13)</a></li>
-                        <li class="sub-category"><a class="dropdown-item" href="./shop.html">Bulls (1)</a></li>
-                        <li class="sub-category"><a class="dropdown-item" href="./shop.html">Cows (1)</a></li>
-                        <li class="sub-category"><a class="dropdown-item" href="./shop.html">Heifers (11)</a></li>
-                        <li class="category"><a class="dropdown-item" href="./shop.html">Goats (6)</a></li>
-                        <li class="sub-category"><a class="dropdown-item" href="./shop.html">Rams (1)</a></li>
-                        <li class="category"><a class="dropdown-item" href="./shop.html">Sheep (7)</a></li>
-                        <li class="sub-category"><a class="dropdown-item" href="./shop.html">Ewes (5)</a></li>
-                        <li class="sub-category"><a class="dropdown-item" href="./shop.html">Lambs (2)</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./shop.html">Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="./auctions.html">Auctions</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./contact-us.html">Contact Us</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<?php
+  require_once "../config/index.php";
+  req("pages/layout/header");
+?>
+
 <div class="container mt-3 p-3">
     <div class="row pt-3">
-        <div class="col-md-3 mb-3">
-            <h5>Categories</h5>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cattle" checked>
-                <label class="form-check-label" for="cattle">
-                    Cattle (13)
-                </label>
-            </div>
-            <div class="sub-category">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="bulls" checked>
-                    <label class="form-check-label" for="bulls">
-                        Bulls (1)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="cows">
-                    <label class="form-check-label" for="cows">
-                        Cows (1)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="heifers">
-                    <label class="form-check-label" for="heifers">
-                        Heifers (11)
-                    </label>
-                </div>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="goats">
-                <label class="form-check-label" for="goats">
-                    Goats (6)
-                </label>
-            </div>
-            <div class="sub-category">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="rams">
-                    <label class="form-check-label" for="rams">
-                        Rams (1)
-                    </label>
-                </div>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="sheep">
-                <label class="form-check-label" for="sheep">
-                    Sheep (7)
-                </label>
-            </div>
-            <div class="sub-category">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="ewes">
-                    <label class="form-check-label" for="ewes">
-                        Ewes (5)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="lambs">
-                    <label class="form-check-label" for="lambs">
-                        Lambs (2)
-                    </label>
-                </div>
-            </div>
-        </div>
+        <?php req("pages/layout/filters/category") ?>
         <div class="col-md-9">
             <div class="row">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="./shop.html">Shop</a>
+                            <a href="<?= page("shop") ?>">Shop</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="./shop.html?category=cattle">Cattle</a>
+                            <a href="<?= page("shop", "category=cattle") ?>">Cattle</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">Bulls</li>
                     </ol>
@@ -202,7 +42,7 @@
                                     </span>
                                     <span>Live</span>
                                 </span>
-                                <a href="./live-auction.html" class="text-brown"><i class="fa-solid fa-eye"></i></a>
+                                <a href="<?= page("live-auction") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
@@ -228,7 +68,7 @@
                                     </span>
                                     <span>Live</span>
                                 </span>
-                                <a href="./live-auction.html" class="text-brown"><i class="fa-solid fa-eye"></i></a>
+                                <a href="<?= page("live-auction") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
@@ -251,7 +91,7 @@
                                 <span class="btn btn-dark">
                                     May 19th, 2022 19:55 UTC
                                 </span>
-                                <a href="./product.html" class="text-brown"><i class="fa-solid fa-eye"></i></a>
+                                <a href="<?= page("product") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
@@ -274,7 +114,7 @@
                                 <span class="btn btn-dark">
                                     May 19th, 2022 19:55 UTC
                                 </span>
-                                <a href="./product.html" class="text-brown"><i class="fa-solid fa-eye"></i></a>
+                                <a href="<?= page("product") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
@@ -297,7 +137,7 @@
                                 <span class="btn btn-dark">
                                     May 19th, 2022 19:55 UTC
                                 </span>
-                                <a href="./product.html" class="text-brown"><i class="fa-solid fa-eye"></i></a>
+                                <a href="<?= page("product") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
@@ -320,7 +160,7 @@
                                 <span class="btn btn-dark">
                                     May 19th, 2022 19:55 UTC
                                 </span>
-                                <a href="./product.html" class="text-brown"><i class="fa-solid fa-eye"></i></a>
+                                <a href="<?= page("product") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
@@ -348,91 +188,5 @@
         </div>
     </div>
 </div>
-<footer class="container-fluid bg-dark-brown text-white text-center p-5">
-    Copyright &copy; AgriBids <span id="copyright-year"></span>
-</footer>
 
-<div class="modal fade" id="auth-modal" tabindex="-1" aria-labelledby="auth-modal-label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="d-flex flex-row justify-content-between align-items-center">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link text-brown active" id="home-tab" data-bs-toggle="tab"
-                                    data-bs-target="#login-tab-pane" type="button" role="tab"
-                                    aria-controls="login-tab-pane" aria-selected="true">Login</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link text-brown" id="profile-tab" data-bs-toggle="tab"
-                                    data-bs-target="#register-tab-pane" type="button" role="tab"
-                                    aria-controls="register-tab-pane" aria-selected="false">Sign Up</button>
-                        </li>
-                    </ul>
-                    <span style="cursor: pointer" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="fa-solid fa-circle-xmark text-brown"></i>
-                    </span>
-                </div>
-                <div class="tab-content px-3 my-3" id="auth-tab">
-                    <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel"
-                         aria-labelledby="login-tab" tabindex="0">
-                        <h5>Login</h5>
-                        <form class="row">
-                            <div class="col-md-12 mb-3">
-                                <label for="login-email" class="form-label">
-                                    Email address <span class="text-danger">*</span>
-                                </label>
-                                <input type="email" class="form-control" id="login-email" required>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="login-password" class="form-label">
-                                    Password <span class="text-danger">*</span>
-                                </label>
-                                <input type="password" class="form-control" id="login-password" required>
-                            </div>
-                            <div class="col-md-12">
-                                <button class="btn btn-outline-brown" type="submit">Login</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="register-tab-pane" role="tabpanel"
-                         aria-labelledby="register-tab" tabindex="0">
-                        <h5>Sign Up</h5>
-                        <form class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="name" class="form-label">
-                                    Name <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" class="form-control" id="name" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="email" class="form-label">
-                                    Email address <span class="text-danger">*</span>
-                                </label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="password" class="form-label">
-                                    Password <span class="text-danger">*</span>
-                                </label>
-                                <input type="password" class="form-control" id="password" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="re-password" class="form-label">
-                                    Re-type Password <span class="text-danger">*</span>
-                                </label>
-                                <input type="password" class="form-control" id="re-password" required>
-                            </div>
-                            <div class="col-md-12">
-                                <button class="btn btn-outline-brown" type="submit">Sign Up</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="../assets/js/scripts.js"></script>
-</body>
-</html>
+<?php req("pages/layout/footer"); ?>

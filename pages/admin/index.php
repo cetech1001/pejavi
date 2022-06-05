@@ -48,13 +48,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./products.html">
+                            <a class="nav-link" href="products.php">
                                 <span data-feather="shopping-cart" class="align-text-bottom"></span>
                                 Products
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./customers.html">
+                            <a class="nav-link" href="customers.php">
                                 <span data-feather="users" class="align-text-bottom"></span>
                                 Customers
                             </a>
@@ -87,7 +87,7 @@
                                 <span data-feather="users"></span> Customers
                             </h5>
                             <p class="card-text">0</p>
-                            <a href="./customers.html" class="btn btn-primary">View Customers</a>
+                            <a href="customers.php" class="btn btn-primary">View Customers</a>
                         </div>
                     </div>
                     <div class="card col-lg-3 col-md-6 col-sm-12">
@@ -105,7 +105,7 @@
                                 <span data-feather="clock"></span> Auctions
                             </h5>
                             <p class="card-text">0</p>
-                            <a href="./customers.html" class="btn btn-primary">View Auctions</a>
+                            <a href="customers.php" class="btn btn-primary">View Auctions</a>
                         </div>
                     </div>
                     <div class="card col-lg-3 col-md-6 col-sm-12">
@@ -114,7 +114,7 @@
                                 <span data-feather="shopping-cart"></span> Products
                             </h5>
                             <p class="card-text">0</p>
-                            <a href="./products.html" class="btn btn-primary">View Products</a>
+                            <a href="products.php" class="btn btn-primary">View Products</a>
                         </div>
                     </div>
                 </div>

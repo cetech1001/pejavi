@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2022 at 11:55 PM
+-- Generation Time: Jun 04, 2022 at 06:43 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,6 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(10) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `quantity` int(100) NOT NULL,
+  `price` int(100) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `image`, `quantity`, `price`, `date`) VALUES
+(2, '16 x Afrikaner Type Heifers', 'product-chicken-wings.jpg', 15, 21, '2022-06-01'),
+(3, '6 x Afraner Type', 'product-burger.jpg', 1000, 15000, '2022-06-01');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -40,11 +63,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `date_created`) VALUES
-(1, 'Obum', '123456', 'obum@mail.com', '2022-05-30');
+(1, 'Obum', '123456', 'obum@mail.com', '2022-05-30'),
+(2, 'Elen', '123456', 'eleven@str.com', '2022-06-02'),
+(3, 'Ndodi', '678901', 'ndo@di.com', '2022-06-03');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -57,10 +88,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

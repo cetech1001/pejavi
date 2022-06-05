@@ -1,80 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Customers | Admin Dashboard</title>
-    <link rel="icon" href="../../assets/img/favicon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="../../assets/css/dashboard.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
-</head>
-<body>
-
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">AgriBids</a>
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
-            data-bs-toggle="collapse" data-bs-target="#sidebar-menu" aria-controls="sidebar-menu"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search"
-           aria-label="Search">
-    <div class="navbar-nav">
-        <div class="nav-item text-nowrap">
-            <a class="nav-link px-3" href="#">Sign out</a>
-        </div>
-    </div>
-</header>
-
-<div class="container-fluid">
-    <div class="row">
-        <nav id="sidebar-menu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="position-sticky pt-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./index.html">
-                            <span data-feather="home" class="align-text-bottom"></span>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./orders.html">
-                            <span data-feather="shopping-bag" class="align-text-bottom"></span>
-                            Orders
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./products.html">
-                            <span data-feather="shopping-cart" class="align-text-bottom"></span>
-                            Products
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./customers.html">
-                            <span data-feather="users" class="align-text-bottom"></span>
-                            Customers
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./auctions.html">
-                            <span data-feather="clock" class="align-text-bottom"></span>
-                            Auctions
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./account.html">
-                            <span data-feather="user" class="align-text-bottom"></span>
-                            Account
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
+<?php include 'layout/header.php'; ?>
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Customers</h1>
@@ -87,7 +11,76 @@
                     </div>
                 </div>
             </div>
+<?php
+    include '../auth/connect.php';
 
+    $select = "SELECT * FROM users";
+    $query = mysqli_query($con, $select);
+    $rows = mysqli_num_rows($query);
+
+    $name = $email = $password = $conPassword = "";
+    $nameErr = $emailErr = $passwordErr = $conPasswordErr = "";
+    $errors = 0;
+
+    if($_SERVER["REQUEST_METHOD"] == "POST" &&  isset($_POST["new-customer"])){
+        $name = test_input($_POST['name']);
+        $email = test_input($_POST['email']);
+        $password = test_input($_POST['password']);
+        $conPassword = test_input($_POST['re-password']);
+
+        if(empty($name)){
+            echo $nameErr = "Field cannot be empty!";
+            $errors++;
+        }
+
+        if(empty($email)){
+            echo $emailErr = "Field cannot be empty!";
+            $errors++;
+        }else{
+            $check = "SELECT * FROM users WHERE email='$email'";
+            $outcome = mysqli_query($con, $check);
+            if(mysqli_num_rows($outcome) > 0){
+                echo "\n" . "Mail already Exist!";
+                $errors++;
+            }
+        }
+
+        if(empty($password)){
+            echo $passwordErr = "Field cannot be empty!";
+            $errors++;
+        }
+
+        if(empty($conPassword)){
+            echo $conPasswordErr = "Field cannot be empty!";
+            $errors++;
+        }
+
+        if($password !== $conPassword){
+            echo $conPasswordErr = "Passwords do not match!!";
+            $errors++;
+        }else{
+            $newPassword = $conPassword;
+        }
+
+        if(empty($errors)){
+            $insert = "INSERT INTO users (`name`, `password`, email) VALUES ('$name', '$newPassword', '$email')";
+            mysqli_query($con, $insert);
+
+            echo "Successful Creating Account";
+        }
+        else{
+            echo "<br>Something went wrong!";
+        }
+
+    }
+
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+?>
             <div class="table-responsive">
                 <table class="table table-striped table-sm" id="data-table">
                     <thead>
@@ -100,13 +93,18 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <?php
+                        if($rows > 0){
+                            $count = 1;
+                            while($fetch = mysqli_fetch_assoc($query)){
+                     ?>
                     <tr>
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>johndoe@mail.com</td>
+                        <td><?= $count++; ?></td>
+                        <td><?= $fetch['name']; ?></td>
+                        <td><?= $fetch['email']; ?></td>
                         <td><span class="badge badge-pill bg-success">Active</span></td>
                         <td class="d-flex flex-row gap-3">
-                            <a href="#" class="text-dark" title="Edit customer"
+                            <a href="edit-customer.php?edit-customer=<?= $fetch['id']; ?>" class="text-dark" title="Edit customer"
                                data-bs-toggle="modal" data-bs-target="#edit-customer-modal">
                                 <span data-feather="edit"></span>
                             </a>
@@ -120,12 +118,13 @@
                             <a href="#" class="text-dark" title="Activate customer's account">
                                 <span data-feather="check-circle"></span>
                             </a>
-                            <a href="#" class="text-dark" title="Delete customer's account"
+                            <a href="delete-customer.php?delete=<?= $fetch['id']; ?>" class="text-dark" title="Delete customer's account"
                                data-bs-toggle="modal" data-bs-target="#delete-customer-modal">
                                 <span data-feather="delete"></span>
                             </a>
                         </td>
                     </tr>
+                    <?php } } ?>
                     </tbody>
                 </table>
             </div>
@@ -146,33 +145,33 @@
                         <span data-feather="x-circle" class="align-text-bottom"></span>
                     </span>
                 </div>
-                <form class="row">
+                <form class="row" action="" method="post">
                     <div class="col-md-6 mb-3">
                         <label for="name" class="form-label">
                             Name <span class="text-danger">*</span>
                         </label>
-                        <input type="text" class="form-control" id="name" required>
+                        <input type="text" class="form-control" name="name" id="name" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="email" class="form-label">
                             Email address <span class="text-danger">*</span>
                         </label>
-                        <input type="email" class="form-control" id="email" required>
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="password" class="form-label">
                             Password <span class="text-danger">*</span>
                         </label>
-                        <input type="password" class="form-control" id="password" required>
+                        <input type="password" class="form-control" name="password" id="password" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="re-password" class="form-label">
                             Re-type Password <span class="text-danger">*</span>
                         </label>
-                        <input type="password" class="form-control" id="re-password" required>
+                        <input type="password" name="re-password" class="form-control" id="re-password" required>
                     </div>
                     <div class="col-md-12">
-                        <button class="btn btn-secondary" type="submit">Submit</button>
+                        <button class="btn btn-secondary" name="new-customer" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
@@ -191,21 +190,21 @@
                         <span data-feather="x-circle" class="align-text-bottom"></span>
                     </span>
                 </div>
-                <form class="row">
+                <form class="row" method="post" action="">
                     <div class="col-md-6 mb-3">
                         <label for="edit-name" class="form-label">
                             Name <span class="text-danger">*</span>
                         </label>
-                        <input type="text" class="form-control" id="edit-name" required>
+                        <input type="text" class="form-control" name="edit-name" id="edit-name" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="edit-email" class="form-label">
                             Email address <span class="text-danger">*</span>
                         </label>
-                        <input type="email" class="form-control" id="edit-email" required>
+                        <input type="email" class="form-control" name="edit-email" id="edit-email" disabled required>
                     </div>
                     <div class="col-md-12">
-                        <button class="btn btn-secondary" type="submit">Submit</button>
+                        <button class="btn btn-secondary" name="edit-customer" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
@@ -229,16 +228,16 @@
                         <label for="edit-password" class="form-label">
                             Password <span class="text-danger">*</span>
                         </label>
-                        <input type="password" class="form-control" id="edit-password" required>
+                        <input type="password" class="form-control" name="new-password" id="edit-password" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="edit-re-password" class="form-label">
                             Re-type Password <span class="text-danger">*</span>
                         </label>
-                        <input type="password" class="form-control" id="edit-re-password" required>
+                        <input type="password" class="form-control" name="confirm-password" id="edit-re-password" required>
                     </div>
                     <div class="col-md-12">
-                        <button class="btn btn-secondary" type="submit">Submit</button>
+                        <button class="btn btn-secondary" name="change-password" type="submit">Submit</button>
                     </div>
                 </form>
             </div>

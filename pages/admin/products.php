@@ -1,80 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Products | Admin Dashboard</title>
-    <link rel="icon" href="../../assets/img/favicon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="../../assets/css/dashboard.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
-</head>
-<body>
 
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">AgriBids</a>
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
-            data-bs-toggle="collapse" data-bs-target="#sidebar-menu" aria-controls="sidebar-menu"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search"
-           aria-label="Search">
-    <div class="navbar-nav">
-        <div class="nav-item text-nowrap">
-            <a class="nav-link px-3" href="#">Sign out</a>
-        </div>
-    </div>
-</header>
-
-<div class="container-fluid">
-    <div class="row">
-        <nav id="sidebar-menu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="position-sticky pt-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./index.html">
-                            <span data-feather="home" class="align-text-bottom"></span>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./orders.html">
-                            <span data-feather="shopping-bag" class="align-text-bottom"></span>
-                            Orders
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./products.html">
-                            <span data-feather="shopping-cart" class="align-text-bottom"></span>
-                            Products
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./customers.html">
-                            <span data-feather="users" class="align-text-bottom"></span>
-                            Customers
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./auctions.html">
-                            <span data-feather="clock" class="align-text-bottom"></span>
-                            Auctions
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./account.html">
-                            <span data-feather="user" class="align-text-bottom"></span>
-                            Account
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
+    <?php include "layout/header.php"; ?>
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Products</h1>
@@ -87,7 +12,77 @@
                     </div>
                 </div>
             </div>
+<?php
+    include '../auth/connect.php';
 
+    $name = $price = $quantity = $imageName = $imagetName = "";
+    $nameErr = $priceErr = $quantityErr = $imageErr = "";
+    $errors = 0;
+
+
+    if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["new-product"])){
+        $name = test_input($_POST['new-name']);
+        $price = test_input($_POST['new-price']);
+        $quantity = test_input($_POST['new-quantity']);
+
+        if(empty($name)){
+            $nameErr = "Field cannot be empty!";
+            $errors++;
+        }
+
+        if(empty($quantity)){
+            $quantityErr = "Field cannot be empty!";
+            $errors++;
+        }
+
+        if(empty($price)){
+            $priceErr = "Field cannot be empty!";
+            $errors++;
+        }
+
+        $imageName = $_FILES["new-image"]["name"];
+        $imagetName = $_FILES["new-image"]["tmp_name"];
+        $imageFolder = "../../uploads/".$imageName;
+        $imageFileType = strtolower(pathinfo($imageFolder, PATHINFO_EXTENSION));
+
+        if (file_exists($imageFolder)) {
+          $imageErr = "Sorry, image already exists.";
+          $errors++;
+        }
+
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+            $imageErr = "Sorry, only JPG, JPEG, & PNG files are allowed.";
+            $errors++;
+        }
+
+         if(empty($errors)){
+            $insert = "INSERT INTO products (`name`, `image`, quantity, price) VALUES ('$name', '$imageName', '$quantity', '$price')";
+            mysqli_query($con, $insert);
+
+            if (move_uploaded_file($imagetName, $imageFolder)) {
+                echo $imgSuccess = "Image uploaded successfully";
+            }
+            else{
+                echo $imageErr = "Failed to upload image";
+            }
+
+        }
+
+    }
+
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    $select = "SELECT * FROM products";
+    $query = mysqli_query($con, $select);
+    $rows = mysqli_num_rows($query);
+
+
+?>
             <div class="table-responsive">
                 <table class="table table-striped table-sm" id="data-table">
                     <thead>
@@ -100,11 +95,15 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <?php if($rows > 0){
+                            $c = 0;
+                            while($fetch = mysqli_fetch_assoc($query)){
+                     ?>
                     <tr>
-                        <td>1</td>
-                        <td>16 x Full Heifers</td>
-                        <td>N$25,000.00</td>
-                        <td>2</td>
+                        <td><?= $c++ ?></td>
+                        <td><?= $fetch['name']; ?></td>
+                        <td>$<?= $fetch['price']; ?></td>
+                        <td><?= $fetch['quantity']; ?></td>
                         <td class="d-flex flex-row gap-3">
                             <a href="#" title="View product" data-bs-toggle="modal"
                                data-bs-target="#view-product-images-modal">
@@ -114,12 +113,13 @@
                                data-bs-target="#edit-product-modal">
                                 <span data-feather="edit"></span>
                             </a>
-                            <a href="#" title="View product" data-bs-toggle="modal"
+                            <a href="#?item=<?= $fetch['id']; ?>" title="View product" data-bs-toggle="modal"
                                data-bs-target="#delete-product-modal">
                                 <span data-feather="delete"></span>
                             </a>
                         </td>
                     </tr>
+                    <?php } } ?>
                     </tbody>
                 </table>
             </div>
@@ -141,33 +141,33 @@
                     </span>
                 </div>
                 <hr/>
-                <form class="row">
+                <form class="row" action="#" method="post" enctype="multipart/form-data">
                     <div class="col-md-6 mb-3">
                         <label for="name" class="form-label">
                             Name <span class="text-danger">*</span>
                         </label>
-                        <input type="text" class="form-control" id="name" required>
+                        <input type="text" class="form-control" name="new-name" id="name" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="price" class="form-label">
                             Price <span class="text-danger">*</span>
                         </label>
-                        <input type="number" class="form-control" id="price" step="0.01" min="0" required>
+                        <input type="number" class="form-control" name="new-price" id="price" step="0.01" min="0" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="quantity" class="form-label">
                             Quantity <span class="text-danger">*</span>
                         </label>
-                        <input type="number" class="form-control" id="quantity" step="1" min="1" required>
+                        <input type="number" class="form-control" name="new-quantity" id="quantity" step="1" min="1" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="image" class="form-label">
                             Image <span class="text-danger">*</span>
                         </label>
-                        <input class="form-control" type="file" id="image" accept="image/*" required>
+                        <input class="form-control" type="file" name="new-image" id="image" accept="image/*" required>
                     </div>
                     <div class="col-md-12">
-                        <button class="btn btn-secondary" type="submit">Submit</button>
+                        <button class="btn btn-secondary" name="new-product" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
@@ -187,7 +187,7 @@
                     </span>
                 </div>
                 <hr/>
-                <form class="row">
+                <form class="row" enctype="multipart/form-data">
                     <div class="col-md-6 mb-3">
                         <label for="edit-name" class="form-label">
                             Name <span class="text-danger">*</span>
@@ -239,7 +239,7 @@
                         <button class="btn btn-secondary" type="button" data-bs-dismiss="modal" aria-label="Close">
                             No, Cancel
                         </button>
-                        <button class="btn btn-danger" type="submit">Yes, Delete</button>
+                        <a href="delete-products.php?item"><button class="btn btn-danger" type="submit">Yes, Delete</button></a>
                     </div>
                 </form>
             </div>
@@ -304,10 +304,10 @@
                                 <label for="gallery-image" class="form-label">
                                     Image <span class="text-danger">*</span>
                                 </label>
-                                <input class="form-control" type="file" id="gallery-image" accept="image/*" required>
+                                <input class="form-control" name="" type="file" id="gallery-image" accept="image/*" required>
                             </div>
                             <div class="col-md-12">
-                                <button class="btn btn-secondary" type="submit">Submit</button>
+                                <button class="btn btn-secondary" name="" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>

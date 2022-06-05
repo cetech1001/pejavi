@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Orders | Admin Dashboard</title>
+    <title>Products | Admin Dashboard</title>
     <link rel="icon" href="../../assets/img/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
@@ -36,7 +36,7 @@
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./index.html">
+                        <a class="nav-link" aria-current="page" href="./index.html">
                             <span data-feather="home" class="align-text-bottom"></span>
                             Dashboard
                         </a>
@@ -48,13 +48,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./products.html">
+                        <a class="nav-link" href="./products.php">
                             <span data-feather="shopping-cart" class="align-text-bottom"></span>
                             Products
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./customers.html">
+                        <a class="nav-link" href="./customers.php">
                             <span data-feather="users" class="align-text-bottom"></span>
                             Customers
                         </a>
@@ -74,32 +74,3 @@
                 </ul>
             </div>
         </nav>
-
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Orders</h1>
-            </div>
-
-            <div class="table-responsive">
-                <table class="table table-striped table-sm" id="data-table">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Items</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-        </main>
-    </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-<script src="../../assets/js/dashboard.js"></script>
-</body>
-</html>

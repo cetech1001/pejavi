@@ -71,7 +71,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="menu">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="categories" data-bs-toggle="dropdown" href="#" role="button"

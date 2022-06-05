@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Account | Admin Dashboard</title>
+    <title>Auctions | Admin Dashboard</title>
     <link rel="icon" href="../../assets/img/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
@@ -48,13 +48,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./products.html">
+                        <a class="nav-link" href="products.php">
                             <span data-feather="shopping-cart" class="align-text-bottom"></span>
                             Products
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./customers.html">
+                        <a class="nav-link" href="customers.php">
                             <span data-feather="users" class="align-text-bottom"></span>
                             Customers
                         </a>
@@ -77,35 +77,34 @@
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Account</h1>
+                <h1 class="h2">Auctions</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group me-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                            <span data-feather="plus-circle" class="align-text-bottom"></span> New Auction
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <div class="row">
-                <form class="col-md-6 mb-3">
-                    <h5>Edit Profile</h5>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" required>
-                    </div>
-                    <button type="submit" class="btn btn-secondary">Submit</button>
-                </form>
-
-                <form class="col-md-6">
-                    <h5>Change Password</h5>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="re-password" class="form-label">Re-type Password</label>
-                        <input type="password" class="form-control" id="re-password" required>
-                    </div>
-                    <button type="submit" class="btn btn-secondary">Submit</button>
-                </form>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm" id="data-table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Start Bid</th>
+                        <th scope="col">Current Bid</th>
+                        <th scope="col">Final Bid</th>
+                        <th scope="col">Winner</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>

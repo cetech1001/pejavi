@@ -35,7 +35,7 @@
         }
 
         if(empty($errors)){
-            $update = "UPDATE products SET full_name='$name', price='$price', quantity='$quantity' WHERE id='$pid'";
+            $update = "UPDATE auctions SET full_name='$name', price='$price', quantity='$quantity' WHERE id='$pid'";
             $query = mysqli_query($con, $update);
             echo $Success = "Updated Successfully!";
             $errors = 0;

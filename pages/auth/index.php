@@ -43,7 +43,7 @@
                                 <input type="password" class="form-control" name="password" id="login-password" required>
                             </div>
                             <input type="hidden" name="type" value="login">
-                            <input type="hidden" name="page" value="<?= $page ?>">
+                            <input type="hidden" name="page" value="<?= $_SERVER["PHP_SELF"] ?>">
                             <div class="col-md-12">
                                 <button class="btn btn-outline-brown" name="login" type="submit">Login</button>
                             </div>
@@ -78,7 +78,7 @@
                                 <input type="password" class="form-control" name="re-password" id="re-password" required>
                             </div>
                             <input type="hidden" name="type" value="register">
-                            <input type="hidden" name="page" value="<?= $page ?>">
+                            <input type="hidden" name="page" value="<?= $_SERVER["PHP_SELF"] ?>">
                             <div class="col-md-12">
                               <button class="btn btn-outline-brown" name="register" type="submit">Sign Up</button>
                             </div>

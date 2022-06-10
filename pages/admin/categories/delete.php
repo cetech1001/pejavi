@@ -6,7 +6,7 @@
 
     if (mysqli_query($con, $sql)){
          echo "Record deleted successfully";
-         header('location:customers.php');
+         header('location:index.php');
     } else {
         echo "Error deleting record: " . mysqli_error($con);
     }

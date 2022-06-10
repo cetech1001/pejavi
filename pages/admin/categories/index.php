@@ -104,7 +104,7 @@
                         <td><?= $fetch['email']; ?></td>
                         <td><span class="badge badge-pill bg-success">Active</span></td>
                         <td class="d-flex flex-row gap-3">
-                            <a href="edit-customer.php?edit-customer=<?= $fetch['id']; ?>" class="text-dark" title="Edit customer"
+                            <a href="edit.php?edit-customer=<?= $fetch['id']; ?>" class="text-dark" title="Edit customer"
                                data-bs-toggle="modal" data-bs-target="#edit-customer-modal">
                                 <span data-feather="edit"></span>
                             </a>
@@ -118,7 +118,7 @@
                             <a href="#" class="text-dark" title="Activate customer's account">
                                 <span data-feather="check-circle"></span>
                             </a>
-                            <a href="delete-customer.php?delete=<?= $fetch['id']; ?>" class="text-dark" title="Delete customer's account"
+                            <a href="delete.php?delete=<?= $fetch['id']; ?>" class="text-dark" title="Delete customer's account"
                                data-bs-toggle="modal" data-bs-target="#delete-customer-modal">
                                 <span data-feather="delete"></span>
                             </a>
@@ -132,7 +132,7 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-<script src="../../assets/js/dashboard.js"></script>
+<script src="../../../assets/js/dashboard.js"></script>
 
 <div class="modal fade" id="new-customer-modal" tabindex="-1"
      aria-labelledby="new-customer-modal-label" aria-hidden="true">

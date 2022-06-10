@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Livestock Auction Platform</title>
+  <title>Livestock Auction Platform</title>
   <link rel="icon" href="../assets/img/favicon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -37,9 +37,15 @@
       </button>
     </div>
   </div>
-  <button class="btn btn-outline-brown p-sm-2 p-md-3" data-bs-toggle="modal" data-bs-target="#auth-modal">
-    <i class="fa-solid fa-user"></i> Login / Sign Up
-  </button>
+  <?php if (isset($_SESSION["user"])): ?>
+      <a href="<?= page($_SESSION["user"]["role"] . "/index") ?>" class="btn btn-outline-brown p-sm-2 p-md-3">
+          <i class="fa-solid fa-user"></i> <?= $_SESSION["user"]["name"] ?>
+      </a>
+  <?php else: ?>
+      <button class="btn btn-outline-brown p-sm-2 p-md-3" data-bs-toggle="modal" data-bs-target="#auth-modal">
+          <i class="fa-solid fa-user"></i> Login / Sign Up
+      </button>
+  <?php endif; ?>
 </header>
 <div class="categories-list d-sm-none p-3">
   <div class="input-group">
@@ -74,24 +80,6 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?= page("index")?>">Home</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="categories" data-bs-toggle="dropdown" href="#" role="button"
-             aria-expanded="false">Categories</a>
-          <ul class="dropdown-menu" aria-labelledby="categories">
-            <li class="category"><a class="dropdown-item" href="<?= page("shop")?>">Cattle (13)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Bulls (1)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Cows (1)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Heifers (11)</a></li>
-            <li class="category"><a class="dropdown-item" href="<?= page("shop")?>">Goats (6)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Rams (1)</a></li>
-            <li class="category"><a class="dropdown-item" href="<?= page("shop")?>">Sheep (7)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Ewes (5)</a></li>
-            <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Lambs (2)</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?= page("shop")?>">Shop</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= page("auctions")?>">Auctions</a>
         </li>
@@ -102,4 +90,4 @@
     </div>
   </div>
 </nav>
-<?php require_once "./auth/index.php" ?>
+<?php include_once PROJECT_PATH . "/pages/auth/index.php"; ?>

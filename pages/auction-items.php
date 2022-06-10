@@ -21,140 +21,146 @@
                 </nav>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 mb-3 mb-md-5">
+                <div class="col-md-4 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
-                        <div class="card-img-overlay d-flex flex-column justify-content-between">
-                            <div>
-                                <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
-                                <p class="card-text"><strong>N$25,000.00</strong> / item</p>
-                            </div>
-                            <p>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
+                            <p class="card-text">
+                                Starting bid: <strong>N$25,000.00</strong> / item
+                                <br>
+                                Current bid: <strong>N$35,000.00</strong> / item
+                            </p>
+                            <p class="text-center">
                                 <span class="badge rounded-pill bg-dark">Cattle</span>
                                 <span class="badge rounded-pill bg-dark">Bull</span>
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="#" class="btn btn-brown">
-                                    <i class="fa-solid fa-cart-arrow-down"></i> Add To Basket
-                                </a>
-                                <a href="<?= page("product") ?>" class="text-dark-brown">
-                                    <i class="fa-solid fa-eye"></i>
-                                </a>
+                                <span class="badge rounded-pill bg-dark d-flex flex-row align-items-center">
+                                    <span class="spinner-grow" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </span>
+                                    <span>Live</span>
+                                </span>
+                                <a href="<?= page("live-auction") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 mb-3 mb-md-5">
+                <div class="col-md-4 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
-                        <div class="card-img-overlay d-flex flex-column justify-content-between">
-                            <div>
-                                <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
-                                <p class="card-text"><strong>N$25,000.00</strong> / item</p>
-                            </div>
-                            <p>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
+                            <p class="card-text">
+                                Starting bid: <strong>N$25,000.00</strong> / item
+                                <br>
+                                Current bid: <strong>N$35,000.00</strong> / item
+                            </p>
+                            <p class="text-center">
                                 <span class="badge rounded-pill bg-dark">Cattle</span>
                                 <span class="badge rounded-pill bg-dark">Bull</span>
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="#" class="btn btn-brown">
-                                    <i class="fa-solid fa-cart-arrow-down"></i> Add To Basket
-                                </a>
-                                <a href="<?= page("product") ?>" class="text-dark-brown">
-                                    <i class="fa-solid fa-eye"></i>
-                                </a>
+                                <span class="badge rounded-pill bg-dark d-flex flex-row align-items-center">
+                                    <span class="spinner-grow" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </span>
+                                    <span>Live</span>
+                                </span>
+                                <a href="<?= page("live-auction") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 mb-3 mb-md-5">
+                <div class="col-md-4 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
-                        <div class="card-img-overlay d-flex flex-column justify-content-between">
-                            <div>
-                                <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
-                                <p class="card-text"><strong>N$25,000.00</strong> / item</p>
-                            </div>
-                            <p>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
+                            <p class="card-text">
+                                Starting bid: <strong>N$25,000.00</strong> / item
+                                <br>
+                                Current bid: <strong>N/A</strong>
+                            </p>
+                            <p class="text-center">
                                 <span class="badge rounded-pill bg-dark">Cattle</span>
                                 <span class="badge rounded-pill bg-dark">Bull</span>
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="#" class="btn btn-brown">
-                                    <i class="fa-solid fa-cart-arrow-down"></i> Add To Basket
-                                </a>
-                                <a href="<?= page("product") ?>" class="text-dark-brown">
-                                    <i class="fa-solid fa-eye"></i>
-                                </a>
+                                <span class="btn btn-dark">
+                                    May 19th, 2022 19:55 UTC
+                                </span>
+                                <a href="<?= page("product") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 mb-3 mb-md-5">
+                <div class="col-md-4 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
-                        <div class="card-img-overlay d-flex flex-column justify-content-between">
-                            <div>
-                                <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
-                                <p class="card-text"><strong>N$25,000.00</strong> / item</p>
-                            </div>
-                            <p>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
+                            <p class="card-text">
+                                Starting bid: <strong>N$25,000.00</strong> / item
+                                <br>
+                                Current bid: <strong>N/A</strong>
+                            </p>
+                            <p class="text-center">
                                 <span class="badge rounded-pill bg-dark">Cattle</span>
                                 <span class="badge rounded-pill bg-dark">Bull</span>
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="#" class="btn btn-brown">
-                                    <i class="fa-solid fa-cart-arrow-down"></i> Add To Basket
-                                </a>
-                                <a href="<?= page("product") ?>" class="text-dark-brown">
-                                    <i class="fa-solid fa-eye"></i>
-                                </a>
+                                <span class="btn btn-dark">
+                                    May 19th, 2022 19:55 UTC
+                                </span>
+                                <a href="<?= page("product") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 mb-3 mb-md-5">
+                <div class="col-md-4 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
-                        <div class="card-img-overlay d-flex flex-column justify-content-between">
-                            <div>
-                                <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
-                                <p class="card-text"><strong>N$25,000.00</strong> / item</p>
-                            </div>
-                            <p>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
+                            <p class="card-text">
+                                Starting bid: <strong>N$25,000.00</strong> / item
+                                <br>
+                                Current bid: <strong>N/A</strong>
+                            </p>
+                            <p class="text-center">
                                 <span class="badge rounded-pill bg-dark">Cattle</span>
                                 <span class="badge rounded-pill bg-dark">Bull</span>
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="#" class="btn btn-brown">
-                                    <i class="fa-solid fa-cart-arrow-down"></i> Add To Basket
-                                </a>
-                                <a href="<?= page("product") ?>" class="text-dark-brown">
-                                    <i class="fa-solid fa-eye"></i>
-                                </a>
+                                <span class="btn btn-dark">
+                                    May 19th, 2022 19:55 UTC
+                                </span>
+                                <a href="<?= page("product") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 mb-3 mb-md-5">
+                <div class="col-md-4 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
-                        <div class="card-img-overlay d-flex flex-column justify-content-between">
-                            <div>
-                                <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
-                                <p class="card-text"><strong>N$25,000.00</strong> / item</p>
-                            </div>
-                            <p>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark-brown">16 x Afrikaner Type Heifers</h5>
+                            <p class="card-text">
+                                Starting bid: <strong>N$25,000.00</strong> / item
+                                <br>
+                                Current bid: <strong>N/A</strong>
+                            </p>
+                            <p class="text-center">
                                 <span class="badge rounded-pill bg-dark">Cattle</span>
                                 <span class="badge rounded-pill bg-dark">Bull</span>
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="#" class="btn btn-brown">
-                                    <i class="fa-solid fa-cart-arrow-down"></i> Add To Basket
-                                </a>
-                                <a href="<?= page("product") ?>" class="text-dark-brown">
-                                    <i class="fa-solid fa-eye"></i>
-                                </a>
+                                <span class="btn btn-dark">
+                                    May 19th, 2022 19:55 UTC
+                                </span>
+                                <a href="<?= page("product") ?>" class="text-brown"><i class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>

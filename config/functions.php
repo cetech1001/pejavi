@@ -8,10 +8,11 @@
 	}
 
 	function sanitize($data) {
+        global $conn;
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
-        return $data;
+        return $conn->escape_string($data);
     }
 
     function check_for_db_error($sql) {
@@ -21,8 +22,8 @@
     	}
     }
 
-    function redirect($file, $params = null) {
-    	header("location: " . page($file, $params));
+    function redirect($page) {
+    	header("location: " . $page);
     	exit();
     }
 ?>

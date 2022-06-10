@@ -1,8 +1,10 @@
-<footer class="container-fluid bg-dark-brown text-white text-center p-5">
-    Copyright &copy; AgriBids <span id="copyright-year"></span>
-</footer>
-
-<script src="../assets/js/scripts.js"></script>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+<script src="<?= PUBLIC_PATH . "/assets/js/dashboard.js" ?>"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
 <?php
     $success = "";
     $error = "";

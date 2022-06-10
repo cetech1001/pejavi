@@ -13,10 +13,12 @@
 
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $_SESSION["id"] = $row['id'];
-                $_SESSION["name"] = $row['name'];
-                $_SESSION["email"] = $row['email'];
-                $_SESSION["role"] = $row['role'];
+                $_SESSION["user"] = [
+                    "id" => $row['id'],
+                    "name" => $row['name'],
+                    "email" => $row['email'],
+                    "role" => $row['role']
+                ];
             } else {
                 $_SESSION["error"] = "Invalid login credentials";
             }
@@ -46,4 +48,3 @@
             redirect($page);
         }
     }
-?>

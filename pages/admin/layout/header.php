@@ -43,9 +43,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= PUBLIC_PATH . "/pages/admin/customers/index.php" ?>">
+                        <a class="nav-link" href="<?= PUBLIC_PATH . "/pages/admin/users/index.php" ?>">
                             <span data-feather="users" class="align-text-bottom"></span>
-                            Customers
+                            Users
                         </a>
                     </li>
                     <li class="nav-item">

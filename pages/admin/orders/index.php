@@ -54,7 +54,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../customers/index.php">
+                        <a class="nav-link" href="../users/index.php">
                             <span data-feather="users" class="align-text-bottom"></span>
                             Customers
                         </a>

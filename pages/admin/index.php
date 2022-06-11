@@ -12,7 +12,7 @@
                     <span data-feather="users"></span> Customers
                 </h5>
                 <p class="card-text">0</p>
-                <a href="customers/index.php" class="btn btn-primary">View Customers</a>
+                <a href="users/index.php" class="btn btn-primary">View Customers</a>
             </div>
         </div>
         <div class="card col-lg-3 col-md-6 col-sm-12">
@@ -30,7 +30,7 @@
                     <span data-feather="clock"></span> Auctions
                 </h5>
                 <p class="card-text">0</p>
-                <a href="customers/index.php" class="btn btn-primary">View Auctions</a>
+                <a href="users/index.php" class="btn btn-primary">View Auctions</a>
             </div>
         </div>
         <div class="card col-lg-3 col-md-6 col-sm-12">

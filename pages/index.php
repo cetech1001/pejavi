@@ -1,6 +1,6 @@
 <?php
-  require_once "../config/index.php";
-  req("pages/layout/header");
+    require_once "../config/index.php";
+    include_once "./layout/header.php";
 ?>
 
 <div id="home-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -253,4 +253,4 @@
   </div>
 </div>
 
-<?php req("pages/layout/footer"); ?>
+<?php include_once "./layout/footer.php"; ?>

@@ -1,6 +1,6 @@
 <?php
   require_once "../config/index.php";
-  req("pages/layout/header");
+  include_once "./layout/header.php";
 ?>
 
 <div class="container mt-3 p-3">
@@ -45,4 +45,4 @@
     </div>
 </div>
 
-<?php req("pages/layout/footer"); ?>
+<?php include_once "./layout/footer.php"; ?>

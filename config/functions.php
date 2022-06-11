@@ -3,9 +3,12 @@
 		return PUBLIC_PATH . "/pages/$file.php" . ($params ? "?$params" : "");
 	}
 
-	function req($path) {
-		require_once PROJECT_PATH . "/$path.php";
-	}
+	function is_auction_live($start_time, $end_time) {
+        $start = strtotime($start_time);
+        $end = strtotime($end_time);
+        $time = time();
+        return $time >= $start_time && $time <= $end_time;
+    }
 
 	function sanitize($data) {
         global $conn;

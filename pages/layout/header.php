@@ -18,19 +18,6 @@
   <img src="../assets/img/logo.png" alt="Logo" class="logo">
   <div class="categories-list d-none d-md-block">
     <div class="input-group">
-      <button class="btn btn-outline-brown dropdown-toggle" type="button"
-              data-bs-toggle="dropdown" aria-expanded="false">Categories</button>
-      <ul class="dropdown-menu">
-        <li class="category"><a class="dropdown-item" href="<?= page("shop")?>">Cattle (13)</a></li>
-        <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Bulls (1)</a></li>
-        <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Cows (1)</a></li>
-        <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Heifers (11)</a></li>
-        <li class="category"><a class="dropdown-item" href="<?= page("shop")?>">Goats (6)</a></li>
-        <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Rams (1)</a></li>
-        <li class="category"><a class="dropdown-item" href="<?= page("shop")?>">Sheep (7)</a></li>
-        <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Ewes (5)</a></li>
-        <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Lambs (2)</a></li>
-      </ul>
       <input type="text" class="form-control border-brown" placeholder="Search livestock products...">
       <button class="btn btn-outline-brown">
         <i class="fa-solid fa-magnifying-glass"></i>
@@ -49,19 +36,6 @@
 </header>
 <div class="categories-list d-sm-none p-3">
   <div class="input-group">
-    <button class="btn btn-outline-brown dropdown-toggle" type="button"
-            data-bs-toggle="dropdown" aria-expanded="false">Categories</button>
-    <ul class="dropdown-menu">
-      <li class="category"><a class="dropdown-item" href="<?= page("shop")?>">Cattle (13)</a></li>
-      <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Bulls (1)</a></li>
-      <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Cows (1)</a></li>
-      <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Heifers (11)</a></li>
-      <li class="category"><a class="dropdown-item" href="<?= page("shop")?>">Goats (6)</a></li>
-      <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Rams (1)</a></li>
-      <li class="category"><a class="dropdown-item" href="<?= page("shop")?>">Sheep (7)</a></li>
-      <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Ewes (5)</a></li>
-      <li class="sub-category"><a class="dropdown-item" href="<?= page("shop")?>">Lambs (2)</a></li>
-    </ul>
     <input type="text" class="form-control border-brown" placeholder="Search livestock products...">
     <button class="btn btn-outline-brown">
       <i class="fa-solid fa-magnifying-glass"></i>

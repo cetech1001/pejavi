@@ -5,23 +5,19 @@
 
 <div class="container mt-3 p-3">
     <div class="row pt-3">
-        <?php req("pages/layout/filters/category") ?>
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="row">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="<?= page("shop") ?>">Shop</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="<?= page("shop", "category=cattle") ?>">Cattle</a>
+                            <a href="<?= page("auctions") ?>">Auctions</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">Bulls</li>
                     </ol>
                 </nav>
             </div>
             <div class="row">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
                         <div class="card-body">
@@ -47,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
                         <div class="card-body">
@@ -73,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
                         <div class="card-body">
@@ -96,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
                         <div class="card-body">
@@ -119,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
                         <div class="card-body">
@@ -142,7 +138,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
                     <div class="card shadow-lg product">
                         <img src="../assets/img/product-samples/cattle.jpg" class="card-img-top" alt="Cattle Product Sample">
                         <div class="card-body">

@@ -26,4 +26,8 @@
     	header("location: " . $page);
     	exit();
     }
-?>
+
+    function date_time($value) {
+        $arr = explode(" ", $value);
+        return join("T", $arr);
+    }
